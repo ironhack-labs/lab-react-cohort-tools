@@ -1,4 +1,5 @@
 import placeholderImage from "../assets/profile-icon.png";
+import { Link } from "react-router-dom";
 
 function StudentCard({
   _id,
@@ -11,13 +12,15 @@ function StudentCard({
   className,
 }) {
   return (
-      <div
-        className={`StudentCard flex justify-between items-center p-3 mb-2 bg-white shadow-sm rounded border border-gray-200 hover:bg-gray-50 ${className}`}
+    <div
+      
+      className={`StudentCard flex justify-between items-center p-3 mb-2 bg-white shadow-sm rounded border border-gray-200 hover:bg-gray-50 ${className}`}
+    >
+      <span
+        className="flex items-center justify-center"
+        style={{ flexBasis: "20%" }}
       >
-        <span
-          className="flex items-center justify-center"
-          style={{ flexBasis: "20%" }}
-        >
+        <Link to="/students/:studentId">
           <img
             src={image || placeholderImage}
             alt={`${firstName} ${lastName}`}
@@ -27,14 +30,15 @@ function StudentCard({
               currentTarget.src = placeholderImage;
             }}
           />
-        </span>
-        <span style={{ flexBasis: "20%" }}>
-          {firstName} {lastName}
-        </span>
-        <span style={{ flexBasis: "20%" }}>{program}</span>
-        <span style={{ flexBasis: "20%" }}>{email}</span>
-        <span style={{ flexBasis: "20%" }}>{phone}</span>
-      </div>
+        </Link>
+      </span>
+      <span style={{ flexBasis: "20%" }}>
+        {firstName} {lastName}
+      </span>
+      <span style={{ flexBasis: "20%" }}>{program}</span>
+      <span style={{ flexBasis: "20%" }}>{email}</span>
+      <span style={{ flexBasis: "20%" }}>{phone}</span>
+    </div>
   );
 }
 
