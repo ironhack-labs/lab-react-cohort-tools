@@ -67,13 +67,11 @@ function StudentDetailsPage() {
               </p>
             </div>
 
-
             {/* Back button */}
             <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
-              Back
+              <Link to="/">Back</Link>
             </button>
-
-          </>
+          </div>
         )}
       </div>
     </div>
