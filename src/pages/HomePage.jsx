@@ -1,5 +1,6 @@
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
+import {Link, useParams} from 'react-router-dom';
 
 import studentsData from "../assets/students.json";
 
@@ -20,8 +21,12 @@ function HomePage() {
 
       {students &&
         students.map((student) => {
+          let {studentId} = useParams(student._id);
+
           return (
+              <Link to="/students/:studentId">
               <StudentCard key={student._id} {...student} />
+              </Link>
           );
         })}
     </div>
