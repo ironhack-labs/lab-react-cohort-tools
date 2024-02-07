@@ -9,7 +9,9 @@ function Navbar() {
 
           {/* Home Button (Logo) */}
           <button className="flex items-center text-l py-1">
-            <img src={logo} alt="Logo" className="h-8 w-auto" />
+           <NavLink to='/'>
+             <img src={logo} alt='Logo' className='h-8 w-auto' />
+            </NavLink>
           </button>
         </div>
 
