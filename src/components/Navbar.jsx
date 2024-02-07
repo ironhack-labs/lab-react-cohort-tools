@@ -1,4 +1,5 @@
-import logo from "./../assets/logo-ironhack-blue.png";
+import logo from "./../assets/logo-ironhack-blue.png"
+import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -8,12 +9,14 @@ function Navbar() {
 
           {/* Home Button (Logo) */}
           <button className="flex items-center text-l py-1">
-            <img src={logo} alt="Logo" className="h-8 w-auto" />
+            <NavLink to="/" className={({ isActive }) => isActive ? "selected" : ""}>
+              <img src={logo} alt="Logo" className="h-8 w-auto" />
+            </NavLink>
           </button>
         </div>
 
         <div className="flex justify-center w-1/2">
-        <span className="text-xl">
+          <span className="text-xl">
             Cohort Tools
           </span>
         </div>
@@ -21,11 +24,14 @@ function Navbar() {
         <div className="w-1/4 flex justify-end mr-4">
           {/* User Profile Button */}
           <button className="flex items-center text-l py-1">
-            <img
-              src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-1.png"
-              alt="Logo"
-              className="h-10 w-auto border-solid border border-white rounded-3xl p-1"
-            />
+            <NavLink to="/profile" className={({ isActive }) => isActive ? "selected" : ""}>
+              <img
+                src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-1.png"
+                alt="Logo"
+                className="h-10 w-auto border-solid border border-white rounded-3xl p-1"
+              />
+            </NavLink>
+
           </button>
 
         </div>
