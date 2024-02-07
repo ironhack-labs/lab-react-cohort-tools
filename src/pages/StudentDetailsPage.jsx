@@ -1,7 +1,23 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
+import { useParams } from 'react-router-dom'; // Import useParams
+import {Link} from "react-router-dom"
+import StudentCard from "../components/StudentCard";
 
 function StudentDetailsPage() {
+
+    const { dittoId } = useParams()
+
+    const student = studentsJson.find((student) => student.id === Number(dittoId));
+   
+    
+    return (
+        <>
+           <h3>This is the student details page</h3>
+            <StudentCard student={student} /> 
+        </>
+    );
+}
 
   // Find the current student profile by id.
   // In this case, the student with id 1. The `studentId` is hard-coded for now.
@@ -66,9 +82,13 @@ function StudentDetailsPage() {
             </div>
 
 
+
+           
+
+
             {/* Back button */}
             <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
-              Back
+            <Link to="/"> Back</Link>   
             </button>
 
           </>
