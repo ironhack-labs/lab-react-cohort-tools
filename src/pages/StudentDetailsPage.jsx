@@ -1,6 +1,6 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom';
 
 function StudentDetailsPage() {
 
@@ -8,10 +8,9 @@ function StudentDetailsPage() {
   // In this case, the student with id 1. The `studentId` is hard-coded for now.
   // This could be a URL parameter from React Router, e.g. /students/:studentId
 
-  let {studentId} = useParams();
+  let { studentId } = useParams();
 
-  const studentProfile = studentsData.find((student) => student._id === studentId);
-
+  const studentProfile = studentsData.find((student) => student._id === studentId.toString());
 
 
   return (
