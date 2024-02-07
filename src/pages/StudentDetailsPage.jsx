@@ -10,7 +10,7 @@ function StudentDetailsPage() {
 
   let { studentId } = useParams();
 
-  const studentProfile = studentsData.find((student) => student._id === studentId.toString());
+  const studentProfile = studentsData.find((student) => student._id === studentId);
 
 
   return (
