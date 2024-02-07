@@ -9,9 +9,6 @@ function StudentDetailsPage() {
   // This could be a URL parameter from React Router, e.g. /students/:studentId
 
   const { studentId } = useParams();
-  console.log(studentId);
-
-  const id = Number.parseInt(studentId);
 
   //const studentId = "1";
   const studentProfile = studentsData.find(
