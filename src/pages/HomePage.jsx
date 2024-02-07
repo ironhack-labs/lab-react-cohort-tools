@@ -22,7 +22,7 @@ function HomePage() {
       {students &&
         students.map((student, index) => {
           return (
-            <Link to="/students/:studentId">
+            <Link to={`/students/${student._id}`} key={index}>
               <StudentCard key={student._id} {...student} />
             </Link>
           );
