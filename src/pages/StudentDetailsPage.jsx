@@ -1,12 +1,15 @@
 import placeholderImage from "./../assets/placeholder.png";
-import studentsData from "./../assets/students.json";
+import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import studentsData from "../assets/students.json"
 
 function StudentDetailsPage() {
+  // Object destructuring
+  const { studentId } = useParams();
 
   // Find the current student profile by id.
   // In this case, the student with id 1. The `studentId` is hard-coded for now.
   // This could be a URL parameter from React Router, e.g. /students/:studentId
-  const studentId = "1";
   const studentProfile = studentsData.find((student) => student._id === studentId);
 
   return (
@@ -65,12 +68,13 @@ function StudentDetailsPage() {
               </p>
             </div>
 
-
             {/* Back button */}
-            <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
+            <NavLink
+              to="/"
+              className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out"
+            >
               Back
-            </button>
-
+            </NavLink>
           </>
         )}
       </div>
