@@ -1,17 +1,23 @@
 import logo from "./../assets/logo-ironhack-blue.png";
-
+import { Link } from "react-router-dom"; 
 function Navbar() {
   return (
     <nav className="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
       <div className="flex justify-between h-20 items-center px-4">
         <div className="flex items-center space-x-2 w-1/4">
 
+        <Link to="/profile" element >  
+        <img src="profil-icon.png"/>
+        </Link>
           {/* Home Button (Logo) */}
           <button className="flex items-center text-l py-1">
-            <img src={logo} alt="Logo" className="h-8 w-auto" />
+          
+
+          <Link to="/" element > 
+            <img src="logo-ironhack-blue.png" alt="Logo" className="h-8 w-auto" /> </Link>
           </button>
         </div>
-
+        
         <div className="flex justify-center w-1/2">
         <span className="text-xl">
             Cohort Tools
