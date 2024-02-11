@@ -1,25 +1,20 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import StudentDetailsPage from "./pages/StudentDetailsPage";
+import { Routes, Route } from "react-router-dom";
 import UserProfilePage from "./pages/UserProfilePage";
-
+import StudentDetailsPage from "./pages/StudentDetailsPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
-
   return (
-    <div className="App relative z-20 pt-20">
+    <main>
       <Navbar />
-
-      <div className="pages">
-        <HomePage />
-
-        <StudentDetailsPage />
-
-        <UserProfilePage />
-      </div>
-
-    </div>
+      <Routes>
+        <Route path="/students/:studentId" element={<StudentDetailsPage />}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<UserProfilePage />} />
+      </Routes>
+    </main>
   );
 }
 
