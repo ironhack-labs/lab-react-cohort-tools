@@ -1,11 +1,18 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 function StudentDetailsPage() {
+
+  const params = useParams()
+  console.log(params);
+  
 
   // Find the current student profile by id.
   // In this case, the student with id 1. The `studentId` is hard-coded for now.
   // This could be a URL parameter from React Router, e.g. /students/:studentId
+  // const studentId = "1";
   const studentId = "1";
   const studentProfile = studentsData.find((student) => student._id === studentId);
 
@@ -66,9 +73,9 @@ function StudentDetailsPage() {
             </div>
 
 
-            {/* Back button */}
+ 
             <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
-              Back
+             <Link to={"/"}>Back</Link>
             </button>
 
           </>
