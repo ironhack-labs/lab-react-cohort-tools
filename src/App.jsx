@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import StudentDetailsPage from "./pages/StudentDetailsPage";
 import UserProfilePage from "./pages/UserProfilePage";
-
+import { Routes, Route } from 'react-router-dom'
+import students from './assets/students.json'
 
 function App() {
 
@@ -12,11 +13,14 @@ function App() {
       <Navbar />
 
       <div className="pages">
-        <HomePage />
+        <Routes>
+            <Route path="/" element ={ <HomePage /> } />
 
-        <StudentDetailsPage />
+            <Route path="/profile" element={ <UserProfilePage /> } />
+            
+            <Route path="students/:studentId" element={<StudentDetailsPage students={students}/>} />
 
-        <UserProfilePage />
+        </Routes>
       </div>
 
     </div>
