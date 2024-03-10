@@ -1,0 +1,47 @@
+/* StudentCard.css */
+
+.student-card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .student-card-container:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .student-card-image-container {
+    flex-basis: 20%;
+  }
+  
+  .student-card-image {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+  }
+  
+  .student-card-name {
+    flex-basis: 20%;
+  }
+  
+  .student-card-program {
+    flex-basis: 20%;
+  }
+  
+  .student-card-email {
+    flex-basis: 20%;
+  }
+  
+  .student-card-phone {
+    flex-basis: 20%;
+  }
+  
