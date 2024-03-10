@@ -1,3 +1,5 @@
+import React from 'react';
+
 function UserProfilePage() {
   const userProfile = {
     image: "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-1.png",
@@ -7,36 +9,31 @@ function UserProfilePage() {
   };
 
   return (
-    <div className="StudentDetailsPage bg-gray-100 py-6 px-4 border-2 border-violet-500 m-2">
+    <div className="user-profile-container">
       <h1>User Profile Page</h1>
-      <div className="bg-white p-8 rounded-lg shadow-md mb-6">
+      <div className="profile-card">
         {userProfile && (
           <>
             <img
               src={userProfile.image}
-              alt="profile-photo"
-              className="rounded-full w-32 h-32 object-cover border-2 border-gray-300"
+              alt="Profile"
+              className="profile-photo"
             />
-            <h1 className="text-2xl mt-4 font-bold absolute">
-              {userProfile.name}
-            </h1>
+            <h1 className="profile-name">{userProfile.name}</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24 mb-4 border-b pb-4">
-              <p className="text-left mb-2 pb-2">
+            <div className="profile-details">
+              <p>
                 <strong>Email:</strong> {userProfile.email}
               </p>
-              <p className="text-left mb-2 pb-2">
+              <p>
                 <strong>Role:</strong> {userProfile.role}
               </p>
             </div>
           </>
         )}
 
-        {/* Back button */}        
-        <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
-          Back
-        </button>
-        
+        {/* Back button */}
+        <button className="back-button">Back</button>
       </div>
     </div>
   );

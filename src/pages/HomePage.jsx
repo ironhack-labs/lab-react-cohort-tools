@@ -2,25 +2,20 @@ import { useState } from "react";
 import StudentCard from "../components/StudentCard";
 import studentsData from "../assets/students.json";
 import { Link } from "react-router-dom";
+import "./HomePage.css"; // Import the CSS file
 
 function HomePage() {
-  // eslint-disable-next-line no-unused-vars
   const [students, setStudents] = useState(studentsData);
 
   return (
-    <div className="border-2 border-rose-500 m-2">
+    <div className="home-page-container">
       <h1>Home Page</h1>
-      <div className="flex justify-between items-center p-2 font-bold border-b w-full">
-        <span
-          className="flex items-center justify-center"
-          style={{ flexBasis: "20%" }}
-        >
-          Image
-        </span>
-        <span style={{ flexBasis: "20%" }}>Name</span>
-        <span style={{ flexBasis: "20%" }}>Program</span>
-        <span style={{ flexBasis: "20%" }}>Email</span>
-        <span style={{ flexBasis: "20%" }}>Phone</span>
+      <div className="header">
+        <span className="column">Image</span>
+        <span className="column">Name</span>
+        <span className="column">Program</span>
+        <span className="column">Email</span>
+        <span className="column">Phone</span>
       </div>
 
       {students &&
