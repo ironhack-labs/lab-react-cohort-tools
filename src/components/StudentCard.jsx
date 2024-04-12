@@ -35,6 +35,7 @@ function StudentCard({
         <span style={{ flexBasis: "20%" }}>{email}</span>
         <span style={{ flexBasis: "20%" }}>{phone}</span>
       </div>
+      
   );
 }
 
