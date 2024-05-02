@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import StudentDetailsPage from "./pages/StudentDetailsPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
@@ -12,14 +13,19 @@ function App() {
       <Navbar />
 
       <div className="pages">
-        <HomePage />
+        <Routes>
 
-        <StudentDetailsPage />
+          <Route path={'/'} element={<HomePage />} />
 
-        <UserProfilePage />
+          <Route path={'/students/:studentId'} element={<StudentDetailsPage />} />
+
+          <Route path={'/profile'} element={<UserProfilePage />} />
+
+        </Routes>
+
       </div>
 
-    </div>
+    </div >
   );
 }
 
