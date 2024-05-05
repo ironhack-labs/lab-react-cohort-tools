@@ -1,5 +1,6 @@
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
+import { Link } from "react-router-dom";
 
 import studentsData from "../assets/students.json";
 
@@ -16,12 +17,14 @@ function HomePage() {
           <span style={{ flexBasis: "20%" }}>Program</span>
           <span style={{ flexBasis: "20%" }}>Email</span>
           <span style={{ flexBasis: "20%" }}>Phone</span>
+          
         </div>
 
       {students &&
         students.map((student) => {
+           
           return (
-              <StudentCard key={student._id} {...student} />
+              <Link key={student._id} to={`/students/${student._Id}`}><StudentCard   {...student} /></Link>         
           );
         })}
     </div>
@@ -29,3 +32,6 @@ function HomePage() {
 }
 
 export default HomePage;
+
+
+{/* <Link to={`student/:${student._Id}`}>Student Details Page</Link> */}
