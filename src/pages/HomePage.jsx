@@ -1,8 +1,8 @@
+import {Link} from "react-router-dom";
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
 
 import studentsData from "../assets/students.json";
-
 function HomePage() {
   // eslint-disable-next-line no-unused-vars
   const [students, setStudents] = useState(studentsData);
@@ -21,7 +21,9 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
-              <StudentCard key={student._id} {...student} />
+            <Link to={`/students/${student._id}`} key={student._id} className="text-blue-600 hover:underline">
+              <StudentCard {...student} />
+            </Link>
           );
         })}
     </div>
