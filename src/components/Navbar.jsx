@@ -1,8 +1,11 @@
 import logo from "./../assets/logo-ironhack-blue.png";
-
+import { Link } from 'react-router-dom';
 function Navbar() {
   return (
     <nav className="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+      <Link to="/">Home</Link>
+      <Link to="/profile" style={{ float: 'right' }}>Profile</Link>
+      
       <div className="flex justify-between h-20 items-center px-4">
         <div className="flex items-center space-x-2 w-1/4">
 
