@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
-
+import { Link } from "react-router-dom";
 import studentsData from "../assets/students.json";
 
 function HomePage() {
@@ -21,7 +21,11 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
-              <StudentCard key={student._id} {...student} />
+            <div key={student._id}>
+              <Link to={'/students/${student._id}'}>
+                <StudentCard key={student._id} {...student} />
+              </Link>
+            </div>
           );
         })}
     </div>
@@ -29,3 +33,6 @@ function HomePage() {
 }
 
 export default HomePage;
+
+
+//wrap student card with link to make clickable (line 25)
