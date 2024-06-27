@@ -21,11 +21,9 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #F3F4F6;
-  color: #111827;
-  margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
+  margin: 0;
 }
 
 /* Container */
@@ -43,8 +41,8 @@ h1 {
 }
 
 a {
-  list-style: none;
-  color: black;
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
@@ -53,6 +51,7 @@ select {
   min-width: 50px;
   margin: 5px;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 label {
@@ -64,7 +63,6 @@ nav {
   position: relative;
   z-index: 20;
 }
-
 
 .Navbar li {
   list-style: none;
