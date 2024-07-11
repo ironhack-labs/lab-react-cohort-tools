@@ -3,6 +3,8 @@ import StudentCard from "../components/StudentCard";
 
 import studentsData from "../assets/students.json";
 
+import { Link } from "react-router-dom";
+
 function HomePage() {
   // eslint-disable-next-line no-unused-vars
   const [students, setStudents] = useState(studentsData);
