@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
@@ -12,11 +13,13 @@ function App() {
       <Navbar />
 
       <div className="pages">
-        <HomePage />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/student/:studentId" element={<StudentDetailsPage />} />
+          <Route path="/profile" element={<UserProfilePage />} />
 
-        <StudentDetailsPage />
-
-        <UserProfilePage />
+          <Route path="*" element={<h1>404</h1>} />
+        </Routes>
       </div>
 
     </div>
