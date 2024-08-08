@@ -42,7 +42,7 @@
     "projects": []
   },
   {
-    "_id": "5",
+    "_id": "4",
     "firstName": "Katie",
     "lastName": "King",
     "email": "katie.king@example.com",
@@ -56,7 +56,7 @@
     "projects": []
   },
   {
-    "_id": "4",
+    "_id": "5",
     "firstName": "Laura",
     "lastName": "Lopez",
     "email": "laura.lopez@example.com",
@@ -68,19 +68,6 @@
     "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-4.png",
     "cohort": "UX MAD 2024-03",
     "projects": []
-  },  
-  {
-    "_id": "6",
-    "firstName": "Ian",
-    "lastName": "Iverson",
-    "email": "ian.iverson@example.com",
-    "phone": "123-456-7890",
-    "linkedinUrl": "https://linkedin.com/in/ianiversonexample",
-    "languages": ["English", "Spanish"],
-    "program": "Data Analytics",
-    "background": "Economics",
-    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-6.png",
-    "cohort": "DA RMT 2024-03",
-    "projects": []
   }
+
 ]
