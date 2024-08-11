@@ -1,4 +1,7 @@
+import HomePage from "../pages/HomePage";
+import UserProfilePage from "../pages/UserProfilePage";
 import logo from "./../assets/logo-ironhack-blue.png";
+import { Routes, Route, Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -8,6 +11,7 @@ function Navbar() {
 
           {/* Home Button (Logo) */}
           <button className="flex items-center text-l py-1">
+          <Link to="/" className="flex items-center text-l py-1"></Link>
             <img src={logo} alt="Logo" className="h-8 w-auto" />
           </button>
         </div>
@@ -21,6 +25,7 @@ function Navbar() {
         <div className="w-1/4 flex justify-end mr-4">
           {/* User Profile Button */}
           <button className="flex items-center text-l py-1">
+          <Link to="/profile"className="flex items-center text-l py-1"></Link>
             <img
               src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-1.png"
               alt="Logo"
