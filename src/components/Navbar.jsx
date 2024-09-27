@@ -1,4 +1,5 @@
 import logo from "./../assets/logo-ironhack-blue.png";
+import {Link} from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -6,10 +7,12 @@ function Navbar() {
       <div className="flex justify-between h-20 items-center px-4">
         <div className="flex items-center space-x-2 w-1/4">
 
+        <Link to="/">
           {/* Home Button (Logo) */}
           <button className="flex items-center text-l py-1">
             <img src={logo} alt="Logo" className="h-8 w-auto" />
           </button>
+        </Link>
         </div>
 
         <div className="flex justify-center w-1/2">
@@ -19,6 +22,7 @@ function Navbar() {
         </div>
 
         <div className="w-1/4 flex justify-end mr-4">
+        <Link to="/profile">
           {/* User Profile Button */}
           <button className="flex items-center text-l py-1">
             <img
@@ -27,6 +31,7 @@ function Navbar() {
               className="h-10 w-auto border-solid border border-white rounded-3xl p-1"
             />
           </button>
+        </Link>
 
         </div>
       </div>
