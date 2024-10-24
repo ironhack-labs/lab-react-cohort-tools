@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import StudentDetailsPage from "./pages/StudentDetailsPage";
 import UserProfilePage from "./pages/UserProfilePage";
 
+import { Routes, Route, Link, NavLink } from "react-router-dom";
+
 
 function App() {
 
@@ -12,11 +14,12 @@ function App() {
       <Navbar />
 
       <div className="pages">
-        <HomePage />
 
-        <StudentDetailsPage />
-
-        <UserProfilePage />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/student/:studentId" element={<StudentDetailsPage />} />
+          <Route path="/profile" element={<UserProfilePage />} />
+        </Routes>
       </div>
 
     </div>
