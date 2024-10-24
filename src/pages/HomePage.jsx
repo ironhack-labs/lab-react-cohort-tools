@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import StudentCard from "../components/StudentCard";
 
 import studentsData from "../assets/students.json";
@@ -21,7 +22,9 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
+            <NavLink to={`/students/${student._id}`}>
               <StudentCard key={student._id} {...student} />
+            </NavLink>       
           );
         })}
     </div>
