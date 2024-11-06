@@ -1,9 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import StudentDetailsPage from "./pages/StudentDetailsPage";
-import UserProfilePage from "./pages/UserProfilePage";
-
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
 
@@ -12,15 +9,11 @@ function App() {
       <Navbar />
 
       <div className="pages">
-        <HomePage />
-
-        <StudentDetailsPage />
-
-        <UserProfilePage />
+        <AppRoutes />
       </div>
 
     </div>
   );
 }
 
-export default App;
+export default App
