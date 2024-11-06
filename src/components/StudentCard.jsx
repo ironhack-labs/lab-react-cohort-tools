@@ -1,7 +1,7 @@
 import placeholderImage from "../assets/profile-icon.png";
 
 function StudentCard({
-  _id,
+  // _id,
   firstName,
   lastName,
   email,
