@@ -1,5 +1,7 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
+import { Link } from "react-router-dom";
+
 
 function StudentDetailsPage() {
 
@@ -77,5 +79,7 @@ function StudentDetailsPage() {
     </div>
   );
 }
+
+
 
 export default StudentDetailsPage;

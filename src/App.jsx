@@ -1,25 +1,22 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import Router components
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import StudentDetailsPage from "./pages/StudentDetailsPage";
 import UserProfilePage from "./pages/UserProfilePage";
 
-
 function App() {
-
   return (
-    <div className="App relative z-20 pt-20">
-      <Navbar />
-
-      <div className="pages">
-        <HomePage />
-
-        <StudentDetailsPage />
-
-        <UserProfilePage />
+    
+      <div className="App relative z-20 pt-20">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/students/:studentId" element={<StudentDetailsPage />} />
+          <Route path="/profile" element={<UserProfilePage />} />
+        </Routes>
       </div>
-
-    </div>
+    
   );
 }
 
