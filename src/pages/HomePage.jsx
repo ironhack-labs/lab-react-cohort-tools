@@ -21,7 +21,7 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
-              <StudentCard key={student._id} {...student} />
+              <StudentCard key={student._id} {...student}  />
           );
         })}
     </div>
