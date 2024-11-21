@@ -1,40 +1,31 @@
-import placeholderImage from "../assets/profile-icon.png";
+import React, { useState } from 'react';
+import ComplitTask from './ComplitTask'; // Import ComplitTask
 
-function StudentCard({
-  _id,
-  firstName,
-  lastName,
-  email,
-  phone,
-  program,
-  image,
-  className,
-}) {
+function StudentCard({ name, image, program, tasks }) {
+  // Local state to manage the task completion status
+  const [studentTasks, setStudentTasks] = useState(tasks);
+
+  // Function to toggle the task completion status
+  const toggleTask = (taskIndex) => {
+    const updatedTasks = studentTasks.map((task, index) => {
+      if (index === taskIndex) {
+        return { ...task, isCompleted: !task.isCompleted }; // Toggle the task's isCompleted property
+      }
+      return task;
+    });
+
+    setStudentTasks(updatedTasks); // Update the task state
+  };
+
   return (
-      <div
-        className={`StudentCard flex justify-between items-center p-3 mb-2 bg-white shadow-sm rounded border border-gray-200 hover:bg-gray-50 ${className}`}
-      >
-        <span
-          className="flex items-center justify-center"
-          style={{ flexBasis: "20%" }}
-        >
-          <img
-            src={image || placeholderImage}
-            alt={`${firstName} ${lastName}`}
-            className="rounded-full w-10 h-10 object-cover border-2 border-gray-300"
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null;
-              currentTarget.src = placeholderImage;
-            }}
-          />
-        </span>
-        <span style={{ flexBasis: "20%" }}>
-          {firstName} {lastName}
-        </span>
-        <span style={{ flexBasis: "20%" }}>{program}</span>
-        <span style={{ flexBasis: "20%" }}>{email}</span>
-        <span style={{ flexBasis: "20%" }}>{phone}</span>
-      </div>
+    <div className="border-2 p-4 m-4">
+      <img src={image} alt={name} className="w-24 h-24 object-cover" />
+      <h2>{name}</h2>
+      <p>{program}</p> {/* Render the program */}
+
+      {/* Pass the toggleTask function to ComplitTask */}
+      <ComplitTask tasks={studentTasks} toggleTask={toggleTask} />
+    </div>
   );
 }
 
