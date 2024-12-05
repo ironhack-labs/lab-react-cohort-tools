@@ -1,13 +1,25 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
+import { Link, useParams } from "react-router-dom";
 
 function StudentDetailsPage() {
+  const dinamicParam = useParams();
+  // console.log(dinamicParam)
+
+  const foundStudent = studentsData.find((eachStudent) => {
+    return eachStudent._id === dinamicParam.studentId;
+  });
+  // console.log(foundStudent)
+  
+  // sin querer terminé haciendo la iteración 4 sin haber hecho antes el commit de la 3 y lo subí todo junto como si fuera iteración 3. Por eso dejaré este comentario aqui (para mi yo del futuro) para cuando vuelva a mirar este código. Ahora haré otro commit con el mensaje de "iteration 4 | Mostrar detalles del estudiante (Solved Lab)"
 
   // Find the current student profile by id.
   // In this case, the student with id 1. The `studentId` is hard-coded for now.
   // This could be a URL parameter from React Router, e.g. /students/:studentId
-  const studentId = "1";
-  const studentProfile = studentsData.find((student) => student._id === studentId);
+  const studentId = foundStudent._id;
+  const studentProfile = studentsData.find(
+    (student) => student._id === studentId
+  );
 
   return (
     <div className="StudentDetailsPage bg-gray-100 py-6 px-4 border-2 border-fuchsia-500 m-2">
@@ -65,12 +77,12 @@ function StudentDetailsPage() {
               </p>
             </div>
 
-
             {/* Back button */}
-            <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
-              Back
-            </button>
-
+            <Link to="/">
+              <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
+                Back
+              </button>
+            </Link>
           </>
         )}
       </div>
