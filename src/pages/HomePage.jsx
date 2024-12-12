@@ -2,6 +2,7 @@ import { useState } from "react";
 import StudentCard from "../components/StudentCard";
 
 import studentsData from "../assets/students.json";
+import { NavLink } from 'react-router-dom'; // <== IMPORT
 
 function HomePage() {
   // eslint-disable-next-line no-unused-vars
@@ -21,7 +22,11 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
+            <>
+            <NavLink to ={`/students/${student._id}`} className={({ isActive }) => isActive ? "selected" : ""}>
               <StudentCard key={student._id} {...student} />
+            </NavLink> 
+            </>
           );
         })}
     </div>
