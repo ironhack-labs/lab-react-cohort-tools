@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
-
 import studentsData from "../assets/students.json";
 
 function HomePage() {
@@ -21,7 +21,15 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
-              <StudentCard key={student._id} {...student} />
+            <div key={student._id}>
+              {/* Add Link to student details page */}
+              <Link to={`/students/${student._id}`} className="block">
+                <StudentCard
+                  key={student._id}
+                  {...student} // Spread student properties to StudentCard
+                />
+              </Link>
+            </div>
           );
         })}
     </div>
