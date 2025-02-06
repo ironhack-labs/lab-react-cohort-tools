@@ -1,4 +1,5 @@
 import logo from "./../assets/logo-ironhack-blue.png";
+import { NavLink, Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -20,6 +21,7 @@ function Navbar() {
 
         <div className="w-1/4 flex justify-end mr-4">
           {/* User Profile Button */}
+          <Link to="/profile">
           <button className="flex items-center text-l py-1">
             <img
               src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-1.png"
@@ -27,7 +29,7 @@ function Navbar() {
               className="h-10 w-auto border-solid border border-white rounded-3xl p-1"
             />
           </button>
-
+          </Link>
         </div>
       </div>
     </nav>
