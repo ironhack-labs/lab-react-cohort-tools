@@ -1,12 +1,12 @@
+import { Link, useParams } from 'react-router-dom';
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
 
 function StudentDetailsPage() {
+  // Get the studentId from the URL params.
+  const { studentId } = useParams();
 
-  // Find the current student profile by id.
-  // In this case, the student with id 1. The `studentId` is hard-coded for now.
-  // This could be a URL parameter from React Router, e.g. /students/:studentId
-  const studentId = "1";
+  // Find the student profile by matching studentId.
   const studentProfile = studentsData.find((student) => student._id === studentId);
 
   return (
@@ -20,9 +20,13 @@ function StudentDetailsPage() {
               alt="profile-photo"
               className="rounded-full w-32 h-32 object-cover border-2 border-gray-300"
             />
-            <h1 className="text-2xl mt-4 font-bold absolute">
-              {studentProfile.firstName} {studentProfile.lastName}
-            </h1>
+
+            {/* Link the Full Name to the Student's Details Page */}
+            <Link to={`/students/${studentProfile._id}`}>
+              <h1 className="text-2xl mt-4 font-bold absolute">
+                {studentProfile.firstName} {studentProfile.lastName}
+              </h1>
+            </Link>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24 mb-4 border-b pb-4">
               <p className="text-left mb-2 border-b pb-2">
@@ -65,12 +69,12 @@ function StudentDetailsPage() {
               </p>
             </div>
 
-
             {/* Back button */}
-            <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
-              Back
-            </button>
-
+            <Link to="/">
+              <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
+                Back
+              </button>
+            </Link>
           </>
         )}
       </div>
