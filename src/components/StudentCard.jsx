@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import placeholderImage from "../assets/profile-icon.png";
 
 function StudentCard({
