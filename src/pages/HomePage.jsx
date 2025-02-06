@@ -1,6 +1,7 @@
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
 
+
 import studentsData from "../assets/students.json";
 
 function HomePage() {
