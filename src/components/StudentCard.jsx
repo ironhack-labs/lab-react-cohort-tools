@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import placeholderImage from "../assets/profile-icon.png";
 
 function StudentCard({
@@ -11,6 +12,7 @@ function StudentCard({
   className,
 }) {
   return (
+    <Link to={`/students/${_id}`}>
       <div
         className={`StudentCard flex justify-between items-center p-3 mb-2 bg-white shadow-sm rounded border border-gray-200 hover:bg-gray-50 ${className}`}
       >
@@ -35,6 +37,7 @@ function StudentCard({
         <span style={{ flexBasis: "20%" }}>{email}</span>
         <span style={{ flexBasis: "20%" }}>{phone}</span>
       </div>
+    </Link>
   );
 }
 
