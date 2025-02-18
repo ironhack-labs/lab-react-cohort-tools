@@ -1,4 +1,5 @@
 import logo from "./../assets/logo-ironhack-blue.png";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -29,6 +30,10 @@ function Navbar() {
           </button>
 
         </div>
+      </div>
+      <div className="flex justify-center space-x-4 mt-4">
+        <Link to="/">Home</Link>
+        <Link to="/profile">Profile</Link>
       </div>
     </nav>
   );
