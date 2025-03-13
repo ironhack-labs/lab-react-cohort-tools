@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import placeholderImage from "../assets/profile-icon.png";
 
 function StudentCard({
@@ -18,6 +19,7 @@ function StudentCard({
           className="flex items-center justify-center"
           style={{ flexBasis: "20%" }}
         >
+         
           <img
             src={image || placeholderImage}
             alt={`${firstName} ${lastName}`}
@@ -28,9 +30,11 @@ function StudentCard({
             }}
           />
         </span>
-        <span style={{ flexBasis: "20%" }}>
-          {firstName} {lastName}
-        </span>
+             <Link to={`/students/${_id}`}>
+                <span style={{ flexBasis: "20%" }}>
+                {firstName} {lastName}
+                </span>
+              </Link> 
         <span style={{ flexBasis: "20%" }}>{program}</span>
         <span style={{ flexBasis: "20%" }}>{email}</span>
         <span style={{ flexBasis: "20%" }}>{phone}</span>
