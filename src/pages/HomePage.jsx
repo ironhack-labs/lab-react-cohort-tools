@@ -1,31 +1,44 @@
-import { useState } from "react";
-import StudentCard from "../components/StudentCard";
+import placeholderImage from "../assets/profile-icon.png";
+import { Link } from "react-router-dom";
 
-import studentsData from "../assets/students.json";
-
-function HomePage() {
-  // eslint-disable-next-line no-unused-vars
-  const [students, setStudents] = useState(studentsData);
-
+function StudentCard({
+  _id,
+  firstName,
+  lastName,
+  email,
+  phone,
+  program,
+  image,
+  className,
+}) {
   return (
-    <div className="border-2 border-rose-500 m-2">
-        <h1>Home Page</h1>
-        <div className="flex justify-between items-center p-2 font-bold border-b w-full">
-          <span className="flex items-center justify-center" style={{ flexBasis: "20%" }}>Image</span>
-          <span style={{ flexBasis: "20%" }}>Name</span>
-          <span style={{ flexBasis: "20%" }}>Program</span>
-          <span style={{ flexBasis: "20%" }}>Email</span>
-          <span style={{ flexBasis: "20%" }}>Phone</span>
-        </div>
-
-      {students &&
-        students.map((student) => {
-          return (
-              <StudentCard key={student._id} {...student} />
-          );
-        })}
-    </div>
+    <Link to={`/students/${_id}`}>
+      <div
+        className={`StudentCard flex justify-between items-center p-3 mb-2 bg-white shadow-sm rounded border border-gray-200 hover:bg-gray-50 ${className}`}
+      >
+        <span
+          className="flex items-center justify-center"
+          style={{ flexBasis: "20%" }}
+        >
+          <img
+            src={image || placeholderImage}
+            alt={`${firstName} ${lastName}`}
+            className="rounded-full w-10 h-10 object-cover border-2 border-gray-300"
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null;
+              currentTarget.src = placeholderImage;
+            }}
+          />
+        </span>
+        <span style={{ flexBasis: "20%" }}>
+          {firstName} {lastName}
+        </span>
+        <span style={{ flexBasis: "20%" }}>{program}</span>
+        <span style={{ flexBasis: "20%" }}>{email}</span>
+        <span style={{ flexBasis: "20%" }}>{phone}</span>
+      </div>
+    </Link>
   );
 }
 
-export default HomePage;
+export default StudentCard;
