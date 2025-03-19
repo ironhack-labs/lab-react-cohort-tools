@@ -1,31 +1,43 @@
-import { useState } from "react";
-import StudentCard from "../components/StudentCard";
+import { Link } from "react-router-dom";
 
-import studentsData from "../assets/students.json";
+const students = [
+  {
+    id: 1,
+    name: "Juan Pérez",
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+  },
+  {
+    id: 2,
+    name: "María González",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+  },
+  {
+    id: 3,
+    name: "Carlos Rodríguez",
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+  },
+];
 
-function HomePage() {
-  // eslint-disable-next-line no-unused-vars
-  const [students, setStudents] = useState(studentsData);
-
+const HomePage = () => {
   return (
-    <div className="border-2 border-rose-500 m-2">
-        <h1>Home Page</h1>
-        <div className="flex justify-between items-center p-2 font-bold border-b w-full">
-          <span className="flex items-center justify-center" style={{ flexBasis: "20%" }}>Image</span>
-          <span style={{ flexBasis: "20%" }}>Name</span>
-          <span style={{ flexBasis: "20%" }}>Program</span>
-          <span style={{ flexBasis: "20%" }}>Email</span>
-          <span style={{ flexBasis: "20%" }}>Phone</span>
-        </div>
-
-      {students &&
-        students.map((student) => {
-          return (
-              <StudentCard key={student._id} {...student} />
-          );
-        })}
+    <div>
+      <h1>Lista de Estudiantes</h1>
+      <ul>
+        {students.map((student) => (
+          <li key={student.id} style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+            <img
+              src={student.image}
+              alt={student.name}
+              style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "10px" }}
+            />
+            <Link to={`/students/${student.id}`} style={{ textDecoration: "none", color: "black" }}>
+              {student.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default HomePage;
