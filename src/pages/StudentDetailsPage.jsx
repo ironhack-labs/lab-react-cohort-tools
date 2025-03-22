@@ -1,5 +1,7 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function StudentDetailsPage() {
 
@@ -8,6 +10,7 @@ function StudentDetailsPage() {
   // This could be a URL parameter from React Router, e.g. /students/:studentId
   const studentId = "1";
   const studentProfile = studentsData.find((student) => student._id === studentId);
+  
 
   return (
     <div className="StudentDetailsPage bg-gray-100 py-6 px-4 border-2 border-fuchsia-500 m-2">
@@ -67,9 +70,9 @@ function StudentDetailsPage() {
 
 
             {/* Back button */}
-            <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
+            <Link to="/" className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
               Back
-            </button>
+            </Link>
 
           </>
         )}
