@@ -1,31 +1,76 @@
-import { useState } from "react";
-import StudentCard from "../components/StudentCard";
+import { useParams, Link } from "react-router-dom";
+import placeholderImage from "./../assets/placeholder.png";
+import studentsData from "./../assets/students.json";
 
-import studentsData from "../assets/students.json";
+function StudentDetailsPage() {
+  // Get studentId from URL parameters
+  const { studentId } = useParams();
 
-function HomePage() {
-  // eslint-disable-next-line no-unused-vars
-  const [students, setStudents] = useState(studentsData);
+  // Find the student based on the extracted ID
+  const studentProfile = studentsData.find((student) => student._id === studentId);
 
   return (
-    <div className="border-2 border-rose-500 m-2">
-        <h1>Home Page</h1>
-        <div className="flex justify-between items-center p-2 font-bold border-b w-full">
-          <span className="flex items-center justify-center" style={{ flexBasis: "20%" }}>Image</span>
-          <span style={{ flexBasis: "20%" }}>Name</span>
-          <span style={{ flexBasis: "20%" }}>Program</span>
-          <span style={{ flexBasis: "20%" }}>Email</span>
-          <span style={{ flexBasis: "20%" }}>Phone</span>
-        </div>
+    <div className="StudentDetailsPage bg-gray-100 py-6 px-4 border-2 border-fuchsia-500 m-2">
+      <h1>Student Details Page</h1>
+      <div className="bg-white p-8 rounded-lg shadow-md mb-6">
+        {studentProfile ? (
+          <>
+            <img
+              src={studentProfile.image || placeholderImage}
+              alt="profile-photo"
+              className="rounded-full w-32 h-32 object-cover border-2 border-gray-300"
+            />
+            <h1 className="text-2xl mt-4 font-bold">
+              {studentProfile.firstName} {studentProfile.lastName}
+            </h1>
 
-      {students &&
-        students.map((student) => {
-          return (
-              <StudentCard key={student._id} {...student} />
-          );
-        })}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 mb-4 border-b pb-4">
+              <p className="text-left mb-2 border-b pb-2">
+                <strong>LinkedIn:</strong>{" "}
+                <a
+                  href={studentProfile.linkedinUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-2 text-blue-500 hover:underline"
+                >
+                  {studentProfile.linkedinUrl}
+                </a>
+              </p>
+
+              <p className="text-left mb-2 border-b pb-2">
+                <strong>Email:</strong> {studentProfile.email}
+              </p>
+
+              <p className="text-left mb-2 border-b pb-2">
+                <strong>Languages:</strong> {studentProfile.languages.join(", ")}
+              </p>
+
+              <p className="text-left mb-2 border-b pb-2">
+                <strong>Program:</strong> {studentProfile.program}
+              </p>
+
+              <p className="text-left mb-2 pb-2">
+                <strong>Background:</strong> {studentProfile.background}
+              </p>
+
+              <p className="text-left mb-2 pb-2">
+                <strong>Cohort:</strong> {studentProfile.cohort}
+              </p>
+            </div>
+
+            {/* Back button to return to Home Page */}
+            <Link to="/" className="inline-block mt-4">
+              <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
+                Back
+              </button>
+            </Link>
+          </>
+        ) : (
+          <p className="text-red-500">Student not found</p>
+        )}
+      </div>
     </div>
   );
 }
 
-export default HomePage;
+export default StudentDetailsPage;
