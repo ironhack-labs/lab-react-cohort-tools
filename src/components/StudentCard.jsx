@@ -1,4 +1,5 @@
 import placeholderImage from "../assets/profile-icon.png";
+import { Link } from "react-router-dom";
 
 function StudentCard({
   _id,
@@ -18,7 +19,8 @@ function StudentCard({
           className="flex items-center justify-center"
           style={{ flexBasis: "20%" }}
         >
-          <img
+          <Link to={`/students/${_id}`}>
+            <img
             src={image || placeholderImage}
             alt={`${firstName} ${lastName}`}
             className="rounded-full w-10 h-10 object-cover border-2 border-gray-300"
@@ -27,6 +29,7 @@ function StudentCard({
               currentTarget.src = placeholderImage;
             }}
           />
+          </Link>
         </span>
         <span style={{ flexBasis: "20%" }}>
           {firstName} {lastName}
