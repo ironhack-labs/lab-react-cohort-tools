@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
@@ -8,17 +9,19 @@ import UserProfilePage from "./pages/UserProfilePage";
 function App() {
 
   return (
+
     <div className="App relative z-20 pt-20">
       <Navbar />
+      <Routes className="pages">
 
-      <div className="pages">
-        <HomePage />
+        <Route path="/" element={<HomePage />} />
 
-        <StudentDetailsPage />
+        <Route path="/students/:studentId" element={<StudentDetailsPage />} />
+        
+        <Route path="/profile" element={<UserProfilePage />} />
+        
 
-        <UserProfilePage />
-      </div>
-
+      </Routes>
     </div>
   );
 }
