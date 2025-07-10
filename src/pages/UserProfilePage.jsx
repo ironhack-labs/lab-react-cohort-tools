@@ -33,9 +33,12 @@ function UserProfilePage() {
         )}
 
         {/* Back button */}        
-        <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
+       <Link
+          to="/"
+          className="inline-block text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out"
+        >
           Back
-        </button>
+        </Link>
         
       </div>
     </div>
