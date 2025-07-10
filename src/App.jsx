@@ -12,11 +12,12 @@ function App() {
       <Navbar />
 
       <div className="pages">
-        <HomePage />
+        <Routers>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/details" element={< StudentDetailsPage />} />
+          <Route path="/profile" element={<UserProfilePage />} />
+        </Routers>
 
-        <StudentDetailsPage />
-
-        <UserProfilePage />
       </div>
 
     </div>
