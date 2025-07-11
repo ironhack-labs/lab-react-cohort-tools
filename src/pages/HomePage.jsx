@@ -1,5 +1,6 @@
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
+import { Link } from "react-router-dom";
 
 import studentsData from "../assets/students.json";
 
@@ -18,12 +19,24 @@ function HomePage() {
           <span style={{ flexBasis: "20%" }}>Phone</span>
         </div>
 
-      {students &&
-        students.map((student) => {
-          return (
-              <StudentCard key={student._id} {...student} />
-          );
-        })}
+
+        {students.map((student) => (
+        <Link
+          to={`/students/${student._id}`}
+          key={student._id}
+          className="flex items-center p-2 border-b hover:bg-gray-50 transition no-underline text-inherit"
+        >
+          <img
+            src={student.image}
+            alt={student.name}
+          />
+
+          <span style={{ flexBasis: "20%" }}>{student.name}</span>
+          <span style={{ flexBasis: "20%" }}>{student.program}</span>
+          <span style={{ flexBasis: "20%" }}>{student.email}</span>
+          <span style={{ flexBasis: "20%" }}>{student.phone}</span>
+        </Link>
+      ))}
     </div>
   );
 }
