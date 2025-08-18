@@ -1,24 +1,27 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import StudentDetailsPage from "./pages/StudentDetailsPage";
 import UserProfilePage from "./pages/UserProfilePage";
 
-
 function App() {
-
   return (
     <div className="App relative z-20 pt-20">
       <Navbar />
 
       <div className="pages">
-        <HomePage />
+       
 
-        <StudentDetailsPage />
+        <Routes>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/students/:studentId" element={<StudentDetailsPage />}/> 
+          {/* La ruta es a students y el :studentId es el parametro que voy a usar con UseParams */}
+          <Route path="/profile" element={<UserProfilePage />}/>
+          
 
-        <UserProfilePage />
+        </Routes>
       </div>
-
     </div>
   );
 }
