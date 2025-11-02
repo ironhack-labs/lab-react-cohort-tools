@@ -68,7 +68,7 @@
 
 /* Card styles */
 .card {
-  background-color: white;
+  background-color: rgb(53, 49, 49);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 16px;
   border-radius: 8px;
