@@ -10,7 +10,7 @@
 :root {
     --primary-color: #1E40AF;
     --secondary-color: #3B82F6;
-    --background-color: #F3F4F6;
+    --background-color: #272a30;
     --text-color: #111827;
 }
 
@@ -21,7 +21,7 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #F3F4F6;
+  background-color: #2a2d33;
   color: #111827;
   margin: 0;
   background-color: var(--background-color);
