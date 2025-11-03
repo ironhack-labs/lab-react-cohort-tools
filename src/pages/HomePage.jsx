@@ -1,29 +1,21 @@
-import { useState } from "react";
-import StudentCard from "../components/StudentCard";
-
-import studentsData from "../assets/students.json";
+import { Link } from "react-router-dom";
 
 function HomePage() {
-  // eslint-disable-next-line no-unused-vars
-  const [students, setStudents] = useState(studentsData);
-
   return (
-    <div className="border-2 border-rose-500 m-2">
-        <h1>Home Page</h1>
-        <div className="flex justify-between items-center p-2 font-bold border-b w-full">
-          <span className="flex items-center justify-center" style={{ flexBasis: "20%" }}>Image</span>
-          <span style={{ flexBasis: "20%" }}>Name</span>
-          <span style={{ flexBasis: "20%" }}>Program</span>
-          <span style={{ flexBasis: "20%" }}>Email</span>
-          <span style={{ flexBasis: "20%" }}>Phone</span>
-        </div>
-
-      {students &&
-        students.map((student) => {
-          return (
-              <StudentCard key={student._id} {...student} />
-          );
-        })}
+    <div className="p-6">
+      <h2 className="text-2xl font-semibold mb-4">Cohort Students</h2>
+      <ul className="space-y-3">
+        {students.map((student) => (
+          <li key={student._id} className="border p-3 rounded">
+            <Link
+              to={`/students/${student._id}`}
+              className="text-blue-600 hover:underline"
+            >
+              {student.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
