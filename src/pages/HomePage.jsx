@@ -1,15 +1,13 @@
 import { useState } from "react";
 import StudentCard from "../components/StudentCard";
-
 import studentsData from "../assets/students.json";
 
 function HomePage() {
-  // eslint-disable-next-line no-unused-vars
   const [students, setStudents] = useState(studentsData);
 
   return (
     <div className="border-2 border-rose-500 m-2">
-        <h1>Home Page</h1>
+        <h1>Home Page</h1>s
         <div className="flex justify-between items-center p-2 font-bold border-b w-full">
           <span className="flex items-center justify-center" style={{ flexBasis: "20%" }}>Image</span>
           <span style={{ flexBasis: "20%" }}>Name</span>
