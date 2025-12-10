@@ -3,7 +3,10 @@ import StudentCard from "../components/StudentCard";
 
 import studentsData from "../assets/students.json";
 
+import { useNavigate } from "react-router-dom";
+
 function HomePage() {
+  const navigate = useNavigate()
   // eslint-disable-next-line no-unused-vars
   const [students, setStudents] = useState(studentsData);
 
@@ -21,7 +24,9 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
-              <StudentCard key={student._id} {...student} />
+            <div key={student._id} onClick={() => navigate(`/students/${student._id}`)} className="cursor-pointer">
+              <StudentCard {...student} />
+            </div>
           );
         })}
     </div>
