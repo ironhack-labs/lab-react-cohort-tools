@@ -18,13 +18,11 @@ function HomePage() {
           <span style={{ flexBasis: "20%" }}>Phone</span>
         </div>
         <Link to="/student/:studentId">
-      {students &&
-        students.map((student) => {
-          return (
-              <StudentCard key={student._id} {...student} />
-          );
-        })}
-        </Link>
+        {students &&
+          students.map((student) => {
+            return <StudentCard key={student._id} {...student} />;
+          })}
+      </Link>
     </div>
   );
 }

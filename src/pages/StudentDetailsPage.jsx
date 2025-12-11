@@ -1,14 +1,17 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router"
 
 function StudentDetailsPage() {
 
   // Find the current student profile by id.
   // In this case, the student with id 1. The `studentId` is hard-coded for now.
   // This could be a URL parameter from React Router, e.g. /students/:studentId
-  const studentId = "1";
-  const studentProfile = studentsData.find((student) => student._id === studentId);
+ const { studentId } = useParams();
+  const studentProfile = studentsData.find(
+    (student) => String(student._id) === String(studentId)
+  );
 
   return (
     <div className="StudentDetailsPage bg-gray-100 py-6 px-4 border-2 border-fuchsia-500 m-2">
