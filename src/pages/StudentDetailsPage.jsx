@@ -1,12 +1,12 @@
 import placeholderImage from "./../assets/placeholder.png";
 import studentsData from "./../assets/students.json";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function StudentDetailsPage() {
+  const { studentId } = useParams();
 
-  // Find the current student profile by id.
-  // In this case, the student with id 1. The `studentId` is hard-coded for now.
-  // This could be a URL parameter from React Router, e.g. /students/:studentId
-  const studentId = "1";
+  // Find the current student profile by id from URL parameter
   const studentProfile = studentsData.find((student) => student._id === studentId);
 
   return (
@@ -53,24 +53,21 @@ function StudentDetailsPage() {
                 <strong>Program:</strong> {studentProfile.program}
               </p>
 
-              <p className="text-left mb-2 pb-2">
+              <p className="text-left mb-2">
                 <strong>Background:</strong> {studentProfile.background}
               </p>
 
-              <p className="text-left mb-2 pb-2">
-                <strong>Cohort:</strong>
-                <span className="ml-2 text-blue-500 hover:underline">
-                  {studentProfile.cohort}
-                </span>
+              <p className="text-left mb-2">
+                <strong>Cohort:</strong> <span>{studentProfile.cohort}</span>
               </p>
             </div>
 
-
             {/* Back button */}
-            <button className="text-white px-4 py-2 rounded bg-green-500 hover:bg-green-600 transition duration-300 ease-in-out">
-              Back
-            </button>
-
+            <Link to="/">
+              <button className="text-white px-4 py-2 rounded bg-fuchsia-500 hover:bg-fuchsia-600 transition duration-300 ease-in-out">
+                Back
+              </button>
+            </Link>
           </>
         )}
       </div>
