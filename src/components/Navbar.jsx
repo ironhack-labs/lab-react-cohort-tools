@@ -1,4 +1,5 @@
 import logo from "./../assets/logo-ironhack-blue.png";
+import {link} from "react-router-dom";
 
 function Navbar() {
   return (
@@ -27,6 +28,11 @@ function Navbar() {
               className="h-10 w-auto border-solid border border-white rounded-3xl p-1"
             />
           </button>
+          
+        <ul>
+          <li><Link to="/profile">Profile</Link></li>
+          <li><Link to="/homePage">Logo</Link></li>
+        </ul>
 
         </div>
       </div>
