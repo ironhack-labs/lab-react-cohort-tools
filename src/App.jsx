@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
@@ -13,10 +14,19 @@ function App() {
 
       <div className="pages">
         <HomePage />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
 
         <StudentDetailsPage />
+         <Routes>
+          <Route path="/students/:studentsId" element={<StudentDetailsPage />} />
+         </Routes>
 
         <UserProfilePage />
+        <Routes>
+          <Route path="/profile" element={<UserProfilePage />} />
+        </Routes>
       </div>
 
     </div>

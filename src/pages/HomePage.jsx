@@ -17,13 +17,20 @@ function HomePage() {
           <span style={{ flexBasis: "20%" }}>Email</span>
           <span style={{ flexBasis: "20%" }}>Phone</span>
         </div>
-
+      <Link to="/students/:studentId">
+      {" "}
       {students &&
         students.map((student) => {
           return (
+            
+
               <StudentCard key={student._id} {...student} />
+              
+              
           );
         })}
+        
+        </Link>
     </div>
   );
 }
