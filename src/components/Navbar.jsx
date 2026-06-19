@@ -20,7 +20,7 @@ function Navbar() {
 
         <div className="w-1/4 flex justify-end mr-4">
           {/* User Profile Button */}
-          <Link to="/user-profile">
+          <Link to="/profile">
             <button className="flex items-center text-l py-1">
               <img
                 src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-cohort-tools-routing/profile-1.png"

@@ -13,8 +13,8 @@ function App() {
       <div className="pages">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/student-details" element={<StudentDetailsPage />} />
-          <Route path="/user-profile" element={<UserProfilePage />} />
+          <Route path="/students/:studentId" element={<StudentDetailsPage />} />
+          <Route path="/profile" element={<UserProfilePage />} />
         </Routes>
       </div>
     </div>
