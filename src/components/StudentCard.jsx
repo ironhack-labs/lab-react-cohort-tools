@@ -1,4 +1,5 @@
 import placeholderImage from "../assets/profile-icon.png";
+import { Link } from "react-router-dom";
 
 function StudentCard({
   _id,
@@ -27,6 +28,10 @@ function StudentCard({
               currentTarget.src = placeholderImage;
             }}
           />
+          <Link to={`/students/${_id}`}>
+            <button style={{border : "2px solid black", borderRadius : "5px"}}>Profil</button>
+
+          </Link>
         </span>
         <span style={{ flexBasis: "20%" }}>
           {firstName} {lastName}
